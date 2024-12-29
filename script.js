@@ -1,7 +1,14 @@
-document.getElementById('contactForm').addEventListener('submit', function (e) {
+document.getElementById('contact-form').addEventListener('submit', function (e) {
   e.preventDefault();
-  const message = document.getElementById('formMessage');
-  message.textContent = "Bedankt voor je bericht! We nemen spoedig contact met je op.";
-  message.style.color = 'green';
-  this.reset();
+
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Simuleer een succesvolle verzending
+  document.getElementById('form-message').textContent = `Bedankt voor je bericht, ${name}! We nemen zo snel mogelijk contact met je op.`;
+  document.getElementById('form-message').classList.remove('hidden');
+
+  // Reset het formulier
+  e.target.reset();
 });
